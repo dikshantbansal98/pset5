@@ -268,8 +268,61 @@ unsigned int size(void)
 
 
 
+/**
 
+ * Unloads dictionary from memory.  Returns true if successful else false.
 
+ */
+
+bool unload(void)
+
+{
+
+	NODE* TEMP = NULL;
+
+	NODE* TEMP2 = NULL;
+
+	for(int i = 0; i < maximumSizeOfHashTable;i++)
+
+	{
+
+		TEMP = hashTable[i];
+
+		// if there is only one linked list present free this linked list
+
+		if(TEMP && !TEMP->NEXT_NODE)
+
+		{
+
+			free(TEMP->word);
+
+			free(TEMP);
+
+		}else
+
+		{
+
+			// goes through all the linked list and frees them one at a time
+
+			while(TEMP)
+
+			{
+
+				TEMP2 = TEMP->NEXT_NODE;
+
+				free(TEMP->word);
+
+				free(TEMP);
+
+				TEMP = TEMP2;
+
+			}
+
+		}
+
+		hashTable[i] = NULL;
+
+	}
 
 	return true;
 
