@@ -218,7 +218,30 @@ bool load(const char* dictionary)
 
             	
 
-	   	
+	   	// giving node values to hash table
+
+	   	// NODEs then the new list is made the head   	
+
+	   	if(hashTable[hashValue] == NULL)
+
+	   	{
+
+	   		hashTable[hashValue] = newNODE;
+
+	   		newNODE->NEXT_NODE = NULL;
+
+	   	}else
+
+	   	{
+
+	   		newNODE->NEXT_NODE = hashTable[hashValue];
+
+	   		hashTable[hashValue] = newNODE;
+
+	   	}   	
+
+   	
+
    }
 
     fclose(fp);
