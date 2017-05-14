@@ -191,7 +191,35 @@ bool load(const char* dictionary)
 
    
 
-   
+   // read the dictionary and create the hash table
+
+   while(fscanf(fp,"%s\n", D_WORD) != EOF)
+
+   {
+
+	   	// create new Node
+
+	   	NODE* newNODE = malloc(sizeof(NODE));
+
+         //providing maximum memory size
+            	newNODE->word = malloc(strlen(D_WORD)+1);
+
+            	// copy the new word into the linked list 
+
+            	strcpy(newNODE->word,D_WORD);
+
+           
+
+           	hashValue = hash(D_WORD);
+
+            	
+
+            	numberOfWords++;
+
+            	
+
+	   	
+   }
 
     fclose(fp);
 
